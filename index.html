@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo app</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(120deg, #f6d365, #cd5c3d);
+        color: white;
+        font-family: "Poppins" sans-serif;
+        min-height: 100vh;
+      }
+      header {
+        font-size: 1.5rem;
+      }
+      header,
+      form {
+        min-height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      form input,
+      form button {
+        border: none;
+        outline: none;
+        padding: 0.5rem;
+        background-color: white;
+        font-size: 1.5rem;
+      }
+      form button {
+        cursor: pointer;
+        color: #d88771;
+        transition: all 0.3s ease;
+      }
+      form button:hover {
+        color: white;
+        background-color: #d88771;
+      }
+      .todo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .todo-list {
+        list-style: none;
+        min-width: 25%;
+      }
+      .todo-list .todo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0.5rem;
+        font-family: "poppins", sans-serif;
+        transition: all 0.5s ease;
+      }
+      .todo li {
+        flex: 1;
+        background-color: white;
+        color: black;
+        padding: 0.3rem;
+        font-size: 1rem;
+      }
+      .trash-btn,
+      .complete-btn {
+        border: none;
+        outline: none;
+        color: white;
+        background-color: #ff6f47;
+        cursor: pointer;
+        padding: 0.5rem;
+        font-size: 1rem;
+      }
+      .complete-btn {
+        background-color: rgba(73, 204, 73);
+      }
+      .fa-trash,
+      .fa-check {
+        pointer-events: none;
+      }
+      .completed {
+        text-decoration: line-through;
+        opacity: 0.5;
+        color: black;
+      }
+      .fall {
+        transform: translateY(8rem) rotateZ(20deg);
+        opacity: 0;
+      }
+
+      .select {
+        margin: 0.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .select::after {
+        content: "\25BC";
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: chocolate;
+        padding: 0.85rem;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+      .select:hover::after {
+        background-color: cornsilk;
+        color: chocolate;
+      }
+
+      select {
+        border: none;
+        outline: none;
+        appearance: none;
+        width: 10rem;
+        padding: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Todo list</h1>
+    </header>
+    <form>
+      <input type="text" class="todo-input" placeholder="enter your todo" />
+      <button type="submit" class="todo-button">
+        <i class="fas fa-plus-square"></i>
+      </button>
+
+      <div class="select">
+        <select name="filter" class="filter-todo">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="todo-container">
+      <ul class="todo-list"></ul>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
